@@ -4,6 +4,10 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+\usepackage{mathrsfs}
+
+\input{./command.tex}
+
 \newtheorem{theorem}{定理}[section]
 \newtheorem{lemma}{引理}
 \newtheorem{definition}{定义}
@@ -14,6 +18,7 @@
 \begin{definition}[等距浸入]
 	若映射 $F\colon (M^n, g) \hookrightarrow (N^{n + p}, \bar{g})$ 是浸入, 且 $M$ 上的度量恰为由 $F$ 将 $N$ 上度量拉回得到的, 即 $g = F^{\ast}\bar{g}$, 则称 $F$ 是{\bf 等距浸入}.
 \end{definition}
+
 \begin{definition}[嵌入]
 	若映射 $F\colon (M^n, g) \hookrightarrow (N^{n + p}, \bar{g})$ 是浸入, 且还满足
 	\begin{enumerate}
@@ -22,6 +27,24 @@
 	\end{enumerate}
 	则称 $F$ 是{\bf 嵌入}.
 \end{definition}
+
+若 $F \colon M \rightarrow N$ 同时是等距浸入和嵌入, 则称其是{\bf 等距嵌入}, 同时可将 $N$ 的子集 $F(M)$ 和 $M$ 等同, $F(M)$ 上的度量即为包含映射 $\iota \colon F(M) \rightarrow N$ 诱导的度量.
+
+以下除特殊声明外, $M^n$ 是 $N^{n + p}$ 的嵌入子流形.
+
 \begin{definition}
+	设 $x \in M \subset N$, 则 $T_xM \subset T_xN$, 其正交补记作 $N_xM$. $NM = \cup_{x \in M}N_xM$ 为 $M$ 的{\bf 法丛}, $N_xM$ 为 $M$ 在 $x$ 点处的{\bf 法空间}. 由定义 $T_xN = T_x{M} \oplus N_xM$.
 \end{definition}
+
+设 $\bar{\nabla}$ 是 $N$ 上和 $\bar{g}$ 相容的黎曼联络, 取 $M$ 上向量场 $X, Y \in \VecFld(M)$. 可以将 $X, Y$ 延拓到 $N$ 上, 得到 $N$ 上的切向量场 $\bar{X}, \bar{Y}$. 则
+
+$$
+	\bar{\nabla}_{X}Y := \left.\bar{\nabla}_{\bar{X}}\bar{Y}\right|_{M}
+$$
+同时这个限制和 $X$ 以及 $Y$ 的延拓方式无关. $\bar{\nabla}_{X}Y$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
+
+\begin{equation}\label{eq::Gauss-formula}
+	\bar{\nabla}_{X}Y = \nabla_XY + h(X, Y)
+\end{equation}
+其中 $\nabla_XY \in T_xM$ 是切向部分, 且 $\nabla$ 是 $M$ 上和 $g$ 相容的黎曼联络. 而 $h$ 是一个对称函数双线性 
 \end{document}
