@@ -8,7 +8,7 @@
 
 \input{./command.tex}
 
-\newtheorem{theorem}{定理}[section]
+\newtheorem{theorem}{定理}[subsection]
 \newtheorem{lemma}{引理}
 \newtheorem{definition}{定义}
 
@@ -32,19 +32,57 @@
 
 以下除特殊声明外, $M^n$ 是 $N^{n + p}$ 的嵌入子流形.
 
+\subsection{法空间·法丛}
 \begin{definition}
 	设 $x \in M \subset N$, 则 $T_xM \subset T_xN$, 其正交补记作 $N_xM$. $NM = \cup_{x \in M}N_xM$ 为 $M$ 的{\bf 法丛}, $N_xM$ 为 $M$ 在 $x$ 点处的{\bf 法空间}. 由定义 $T_xN = T_x{M} \oplus N_xM$.
 \end{definition}
 
-设 $\bar{\nabla}$ 是 $N$ 上和 $\bar{g}$ 相容的黎曼联络, 取 $M$ 上向量场 $X, Y \in \VecFld(M)$. 可以将 $X, Y$ 延拓到 $N$ 上, 得到 $N$ 上的切向量场 $\bar{X}, \bar{Y}$. 则
+\subsection{第二基本形式·平均曲率向量}
+设 $\bnabla$ 是 $N$ 上和 $\bar{g}$ 相容的黎曼联络, 取 $M$ 上向量场 $X, Y \in \VecFld(M)$. 可以将 $X, Y$ 延拓到 $N$ 上, 得到 $N$ 上的切向量场 $\bar{X}, \bar{Y}$. 则
 
-$$
-	\bar{\nabla}_{X}Y := \left.\bar{\nabla}_{\bar{X}}\bar{Y}\right|_{M}
-$$
-同时这个限制和 $X$ 以及 $Y$ 的延拓方式无关. $\bar{\nabla}_{X}Y$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
+\begin{equation}\label{eq::restriction-of-bar-nabla}
+	\bnabla_{X}Y := \left.\bnabla_{\bar{X}}\bar{Y}\right|_{M},
+\end{equation}
+同时这个限制和 $X$ 以及 $Y$ 的延拓方式无关. $\bnabla_{X}Y$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
 
 \begin{equation}\label{eq::Gauss-formula}
-	\bar{\nabla}_{X}Y = \nabla_XY + h(X, Y)
+	\bnabla_{X}Y = \nabla_XY + h(X, Y),
 \end{equation}
-其中 $\nabla_XY \in T_xM$ 是切向部分, 且 $\nabla$ 是 $M$ 上和 $g$ 相容的黎曼联络. 而 $h$ 是一个对称函数双线性 
+其中 $\nabla_XY \in T_xM$ 是切向部分, 且 $\nabla$ 是 $M$ 上和 $g$ 相容的黎曼联络. 而 $h \colon \VecFld(M) \times \VecFld(M) \rightarrow N(M)$ 是一个对称双线性张量场. 公式 \ref{eq::Gauss-formula} 称为{\bf Gauss 公式}. 对于 $h$ 有如下定义:
+
+\begin{definition}
+	$h$ 为子流形 $M$ 上的{\bf 第二基本形式}. 借助它可以定义法向量场
+
+	\begin{equation}\label{eq::mean-curvature-vector-def}
+		\overrightarrow{H} := \dfrac{1}{n}\mathrm{tr}_{g}h,
+	\end{equation}
+	即 $h$ 迹的平均, 为子流形 $M$ 的{\bf 平均曲率向量}.
+\end{definition}
+
+\subsection{Weingarten 公式·形状算子}
+假设如上, 但考虑光滑法向量场 $\xi \in N(M)$ 及其延拓 $\bar{\xi} \in \VecFld(N)$. 类似有:
+
+\begin{equation*}
+	\bDiv{X}{\xi} := \left.\bDiv{\bar{X}}{\xi}\right|_{M},
+\end{equation*}
+这个延拓也与 $X$ 以及 $\xi$ 的延拓方式无关. $\bDiv{X}{\xi}$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
+
+\begin{equation}\label{eq::Weingarten-formula}
+	\bDiv{X}{\xi} = -\Shape{\xi}X + \tDiv{X}{\xi},
+\end{equation}
+其中 $\Shape_{\xi}$ 称为形状算子.
+
+\subsection{子流形基本方程}
+下面推导子流形上的基本方程.
+
+依然设 $X, Y$ 是 $M$ 上光滑向量场, $\bar{X}, \bar{Y}$ 是其在 $N$ 上的光滑延拓. 则在 $M$ 上, Lie 括号 $\left.[\bar{X}, \bar{Y}]\right|_{M} = [X, Y]$ 是和延拓方式无关的. 因此结合 \ref{eq::restriction-of-bar-nabla} 式, 接下来在 $M$ 上可将 $X, Y$ 和 $\bar{X}, \bar{Y}$ 等同.
+
+设 $\bar{\Rm}$ 为 $N$ 上的曲率张量, $\Rm$ 为 $M$ 上的曲率张量. 再取子流形上的向量场 $Z$,
+
+\begin{align}
+	\bar{\Rm}(X, Y)Z &= \bnabla_X \bnabla_YZ - \bnabla_Y \bnabla_XZ - \bnabla_{[X, Y]}Z \\
+	&= \bDiv{X}{\left(\Div{Y}{Z} + h(Y, Z)\right)} - \bDiv{Y}\left(\Div{X}{Z} + h(X, Z)\right) - \left(\Div{[X, Y]}{Z} + h([X, Y], Z)\right) \\
+	&= \Div{X}{\Div{Y}{Z}} + h(X, \Div{Y}{Z})
+\end{align}
+
 \end{document}
