@@ -74,7 +74,7 @@
 \end{equation*}
 因此得到等式:
 \begin{equation}
-	\Inner{h(X, Y)}{\xi} = \Inner{Y}{\Shape{\xi}{X}}
+	\Inner{h(X, Y)}{\xi} = \Inner{Y}{\Shape{\xi}{X}}.
 \end{equation}
 
 \subsection{子流形基本方程·序}
@@ -96,6 +96,44 @@
 最后一个等号中, 按上下两行分成两部分, 上一部分为切向, 而下一部分为法向. 可以用切/法向量与之内积得到以下公式:
 
 \subsection{子流形基本方程·Gauss 方程}
-取切向量场 $W \in \VecFld(M)$, 
+取切向量场 $W \in \VecFld(M)$, 内积得到
+\begin{align*}
+	&\Inner{\bRm(X, Y)Z}{W} \\
+	&= \Inner{\Rm(X, Y)Z}{W} + \Inner{\Shape{h(X, Z)}{Y}}{W} - \Inner{\Shape{h(Y, Z)}{X}}{W} \\
+	&= \Inner{\Rm(X, Y)Z}{W} + \Inner{h(W, Y)}{h(X, Z)} - \Inner{h(W, X)}{h(Y, Z)}.
+\end{align*}
 
+我们把最后这个结果, 也就是如下方程
+\begin{equation}\label{eq::Gauss-equation}
+	\bRm(W, Z, X, Y) = \Rm(W, Z, X, Y) + \Inner{h(W, Y)}{h(X, Z)} - \Inner{h(W, X)}{h(Y, Z)}
+\end{equation}
+称为子流形的 {\bf Gauss 方程}.
+
+\subsection{子流形基本方程·Codazzi 方程}
+对于 $\bRm(X, Y)Z$ 的法方向, 直接考虑法向部分, 而非内积.
+
+在这里首先计算(定义) $h$ 的协变微分 $\nabla h$:
+$$
+	\nabla h(X, Y; Z) = \tDiv{Z}{h(X, Y)} - h(\Div{Z}{X}, Y) - h(X, \Div{Z}{Y}).
+$$
+
+将这个结果代入切向分量, 得到:
+\begin{align*}
+	&(\bRm(X, Y)Z)^{\perp} \\
+	&= h(X, \Div{Y}{Z}) - h(Y, \Div{X}{Z}) - h([X, Y], Z) + \tDiv{X}{h(Y, Z)} - \tDiv{Y}{h(X, Z)} \\
+	&= \nabla h(Y, Z; X) - \nabla h(X, Z; Y),
+\end{align*}
+即有 {\bf Codazzi 方程}:
+\begin{equation}\label{eq::Codazzi-equation}
+	(\bRm(X, Y)Z)^{\perp} = \nabla h(Y, Z; X) - \nabla h(X, Z; Y).
+\end{equation}
+
+\subsection{子流形基本方程·Ricci 方程}
+最后我们计算法联络的曲率张量 $\tRm(X, Y)\xi := \tDiv{X}{\tDiv{Y}{\xi}} - \tDiv{Y}{\tDiv{X}{\xi}} - \tDiv{[X, Y]}{\xi}$.
+
+取法向量场 $\eta \in N(M)$, 内积得到:
+\begin{align*}
+	&\Inner{\bRm(X, Y)\xi}{\eta} \\
+	&=  
+\end{align*}
 \end{document}
