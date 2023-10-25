@@ -134,6 +134,17 @@ $$
 取法向量场 $\eta \in N(M)$, 内积得到:
 \begin{align*}
 	&\Inner{\bRm(X, Y)\xi}{\eta} \\
-	&=  
+	&= \Inner{\bDiv{X}{\bDiv{Y}{\xi}} - \bDiv{Y}{\bDiv{X}{\xi}} - \bDiv{[X, Y]}{\xi}}{\eta} \\
+	&= \Inner{h(X, -\Shape{\xi}{Y}) + \tDiv{X}{\tDiv{Y}{\xi}} - h(Y, -\Shape{\xi}{X}) - \tDiv{Y}{\tDiv{X}{\xi}} + \tDiv{[X, Y]}{\xi}}{\eta} \\
+	&= \Inner{\tRm(X, Y)\xi + h(Y, \Shape{\xi}{X}) - h(X, \Shape{\xi}{Y})}{\eta} \\
 \end{align*}
+即有 {\bf Ricci 方程}:
+\begin{equation}\label{eq::Ricci-equation}
+	(\bRm(X, Y)\xi)^{\perp} = \tRm(X, Y)\xi + h(Y, \Shape{\xi}{X}) - h(X, \Shape{\xi}{Y})
+\end{equation}
+
+\subsection{活动标架法}
+这一部分, 我们用活动标架法计算局部坐标下的基本方程.
+
+取 $N$ 上单位正交的切向量场 $\{e_1, \cdots, e_n, e_{n + 1}, \cdots, e_{n + p}\}$, 且满足前 $n$ 个向量场限制在 $M$ 上
 \end{document}
