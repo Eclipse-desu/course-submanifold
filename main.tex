@@ -1,0 +1,28 @@
+\documentclass{ctexart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+\usepackage{mathrsfs}
+
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8}
+
+\input{./command.tex}
+
+\newtheorem{theorem}{定理}[subsection]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{definition}[theorem]{定义}
+
+\begin{document}
+\section{子流形的基本公式}
+	\input{./sections/1-basic-formula}
+
+\section{子流形基本方程}
+	\input{./sections/2-basic-equations}
+
+\section{活动标架法}
+	\input{./sections/3-moving-frame}
+\end{document}

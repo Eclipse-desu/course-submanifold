@@ -1,0 +1,58 @@
+\subsection{活动标架法·序}
+这一部分, 我们用活动标架法计算局部坐标下的基本方程.
+
+取 $N$ 上单位正交的标架场 $\{e_1, \cdots, e_n, e_{n + 1}, \cdots, e_{n + p}\}$, 且满足前 $n$ 个向量场限制在 $M$ 上恰是 $M$ 上的单位正交标架向量场. 以下将使用爱因斯坦求和约定, 并对一些指标作如下约定: $1 \leqslant A, B, C, \cdots \leqslant n + p$, $1 \leqslant i, j, k, \cdots \leqslant n$, $n + 1 \leqslant \alpha, \beta, \cdots \leqslant n + p$. 再记 $\{\omega^{A}\}$ 是 $\{e_{A}\}$ 的对偶向量场. 特别地, $\omega^\alpha$ 限制在 $M$ 上都消失.
+
+首先回顾黎曼流形上的结构方程:
+\begin{align*}
+	\dif\omega^{A} &= -\omega_{C}^{A} \wedge \omega^{C},\quad \omega^{A}_{B} = \omega^{B}_{A}, \\
+	\dif\omega^{A}_{B} &= -\omega^{A}_{C} \wedge \omega^{C}_{B} + \overline{\Omega}^{A}_{B}, \\
+	\overline{\Omega}^{A}_{B} &= \frac{1}{2}\bRm^{A}_{BCD}\omega^{C} \wedge \omega^{D}.
+\end{align*}
+
+由于 $\omega^{\alpha}$ 限制在 $M$ 上是 $0$, 结合结构方程, 有:
+\[
+	0 = \dif\omega^{\alpha} = -\omega_{i}^{\alpha} \wedge \omega^{i},
+\]
+由 Cartan 引理, $\omega^{\alpha}_{i}$ 可由 $\omega^{i}$ 线性表出. 设 
+\begin{equation}\label{eq::representation-connecxion-1-form}
+	\omega^{\alpha}_{i} = h^{\alpha}_{ij}\omega^{j}.	
+\end{equation}
+且由 Cartan 引理的结论, 系数 $h^{\alpha}_{ij}$ 关于 $i, j$ 对称.
+
+利用 $N$ 上的结构方程, 我们可以得到 $M$ 上的结构方程:
+\begin{align*}
+	\dif\omega^{i} &= -\omega^{i}_{j} \wedge \omega^{j}, \quad \omega^{i}_{j} = \omega^{j}_{i}, \\
+	\dif\omega^{i}_{j} &= -\omega^{i}_{k} \wedge \omega^{k}_{j} + \Omega^{i}_{j}, \\
+	\Omega^{i}_{j} &= \frac{1}{2}\Rm^{i}_{jkl}\omega^{k} \wedge \omega^{l}.
+\end{align*}
+
+\subsection{活动标架法·Gauss 方程}
+对比 $M$ 和 $N$ 上的结构方程, 得到在 $M$ 上:
+\begin{align*}
+\dif\omega^{A}_{B} &= -\omega^{A}_{C} \wedge \omega^{C}_{B} + \overline{\Omega}^{A}_{B}, \\
+\dif\omega^{i}_{j} &= -\omega^{i}_{k} \wedge \omega^{k}_{j} + \Omega^{i}_{j}.
+\end{align*}
+由上式,
+$$
+	\dif\omega^{i}_{j} = -\omega^{i}_{k} \wedge \omega^{k}_{j} - \omega^{i}_{\alpha} \wedge \omega^{\alpha}_{k} + \overline{\Omega}^{i}_{j} = -\omega^{i}_{k} \wedge \omega^{k}_{j} + \Omega^{i}_{j},
+$$
+进而得
+$$
+	\Omega^{i}_{j} - \overline{\Omega}^{i}_{j} = \omega^{i}_{\alpha} \wedge \omega^{\alpha}_{k}.
+$$
+再代入联络 $1$-形式的线性表示 \ref{eq::representation-connecxion-1-form} 式以及曲率张量的具体表示, 得到 {\bf Gauss 方程}:
+\begin{equation}\label{eq::Gauss-equation-local}
+	\Rm^{i}_{jkl} - \bRm^{i}_{jkl} = h^{\alpha}_{ik}h^{\alpha}_{jl} - h^{\alpha}_{il}h^{\alpha}_{jk}.
+\end{equation}
+
+\subsection{活动标架法·Codazzi 方程}
+利用结构方程, 得到
+\[
+	\dif\omega^{\alpha}_{i} = -\omega^{\alpha}_{k} \wedge \omega^{k}_{i} - \omega^{\alpha}_{\beta} \wedge \omega^{\beta}_{i} + \overline{\Omega}^{\alpha}_{i},
+\]
+同时, 由联络 $1$-形式的线性表示 \ref{eq::representation-connecxion-1-form} 式, 直接计算 $\dif\omega^{\alpha}_{i}$ 得到:
+\begin{align*}
+	\dif\omega^{\alpha}_{i} &= \dif h^{\alpha}_{ij}\omega^{j} + h^{\alpha}_{ij}\dif\omega^{j} \\
+	&= \dif h^{\alpha}_{ij}\omega^{j} - h^{\alpha}_{ij}\omega^{j}_{A} \wedge \omega^{A}.
+\end{align*}

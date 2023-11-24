@@ -1,0 +1,85 @@
+\subsection{子流形基本方程·序}
+下面推导子流形上的基本方程.
+
+依然设 $X, Y$ 是 $M$ 上光滑向量场, $\bar{X}, \bar{Y}$ 是其在 $N$ 上的光滑延拓. 则在 $M$ 上, Lie 括号 $\left.[\bar{X}, \bar{Y}]\right|_{M} = [X, Y]$ 是和延拓方式无关的. 因此结合 \ref{eq::restriction-of-bar-nabla} 式, 接下来在 $M$ 上可将 $X, Y$ 和 $\bar{X}, \bar{Y}$ 等同.
+
+设 $\bRm$ 为 $N$ 上的曲率张量, $\Rm$ 为 $M$ 上的曲率张量. 再取子流形上的向量场 $Z$,
+\begin{align*}
+	&\bRm(X, Y)Z \\
+	&= \bDiv{X}{\bDiv{Y}{Z}} - \bDiv{Y}{\bDiv{X}{Z}} - \bDiv{[X, Y]}{Z} \\
+	&= \bDiv{X}{\left(\Div{Y}{Z} + h(Y, Z)\right)} - \bDiv{Y}{\left(\Div{X}{Z} + h(X, Z)\right)} - \left(\Div{[X, Y]}{Z} + h([X, Y], Z)\right) \\
+	&= \Div{X}{\Div{Y}{Z}} + h(X, \Div{Y}{Z}) - \Shape{h(Y, Z)}{X} + \tDiv{X}{h(Y, Z)} \\
+	&- \Div{Y}{\Div{X}{Z}} - h(Y, \Div{X}{Z}) + \Shape{h(X, Z)}{Y} - \tDiv{Y}{h(X, Z)} \\
+	&- \Div{[X, Y]}{Z} - h([X, Y], Z) \\
+	&= \Rm(X, Y)Z + \left(\Shape{h(X, Z)}{Y} - \Shape{h(Y, Z)}{X}\right) \\
+	&+ \left(h(X, \Div{Y}{Z}) - h(Y, \Div{X}{Z}) - h([X, Y], Z) + \tDiv{X}{h(Y, Z)} - \tDiv{Y}{h(X, Z)}\right).
+\end{align*}
+最后一个等号中, 按上下两行分成两部分, 上一部分为切向, 而下一部分为法向. 可以用切/法向量与之内积得到以下公式:
+
+\subsection{子流形基本方程·Gauss 方程}
+取切向量场 $W \in \VecFld(M)$, 内积得到
+\begin{align*}
+	&\Inner{\bRm(X, Y)Z}{W} \\
+	&= \Inner{\Rm(X, Y)Z}{W} + \Inner{\Shape{h(X, Z)}{Y}}{W} - \Inner{\Shape{h(Y, Z)}{X}}{W} \\
+	&= \Inner{\Rm(X, Y)Z}{W} + \Inner{h(W, Y)}{h(X, Z)} - \Inner{h(W, X)}{h(Y, Z)}.
+\end{align*}
+
+我们把最后这个结果, 也就是如下方程
+\begin{equation}\label{eq::Gauss-equation}
+	\Inner{\bRm(X, Y)Z}{W} = \Inner{\Rm(X, Y)Z}{W} + \Inner{h(W, Y)}{h(X, Z)} - \Inner{h(W, X)}{h(Y, Z)}
+\end{equation}
+称为子流形的 {\bf Gauss 方程}.
+
+\subsection{子流形基本方程·Codazzi 方程}
+对于 $\bRm(X, Y)Z$ 的法方向, 直接考虑法向部分, 而非内积.
+
+在这里首先计算(定义) $h$ 的协变微分 $\nabla h$:
+$$
+	\nabla h(X, Y; Z) = \tDiv{Z}{h(X, Y)} - h(\Div{Z}{X}, Y) - h(X, \Div{Z}{Y}).
+$$
+
+将这个结果代入切向分量, 得到:
+\begin{align*}
+	&(\bRm(X, Y)Z)^{\perp} \\
+	&= h(X, \Div{Y}{Z}) - h(Y, \Div{X}{Z}) - h([X, Y], Z) + \tDiv{X}{h(Y, Z)} - \tDiv{Y}{h(X, Z)} \\
+	&= \nabla h(Y, Z; X) - \nabla h(X, Z; Y),
+\end{align*}
+即有 {\bf Codazzi 方程}:
+\begin{equation}\label{eq::Codazzi-equation}
+	(\bRm(X, Y)Z)^{\perp} = \nabla h(Y, Z; X) - \nabla h(X, Z; Y).
+\end{equation}
+
+\subsection{子流形基本方程·Ricci 方程}
+最后我们计算法联络的曲率张量 $\tRm(X, Y)\xi := \tDiv{X}{\tDiv{Y}{\xi}} - \tDiv{Y}{\tDiv{X}{\xi}} - \tDiv{[X, Y]}{\xi}$.
+
+取法向量场 $\eta \in N(M)$, 内积得到:
+\begin{align*}
+	&\Inner{\bRm(X, Y)\xi}{\eta} \\
+	&= \Inner{\bDiv{X}{\bDiv{Y}{\xi}} - \bDiv{Y}{\bDiv{X}{\xi}} - \bDiv{[X, Y]}{\xi}}{\eta} \\
+	&= \Inner{h(X, -\Shape{\xi}{Y}) + \tDiv{X}{\tDiv{Y}{\xi}} - h(Y, -\Shape{\xi}{X}) - \tDiv{Y}{\tDiv{X}{\xi}} + \tDiv{[X, Y]}{\xi}}{\eta} \\
+	&= \Inner{\tRm(X, Y)\xi + h(Y, \Shape{\xi}{X}) - h(X, \Shape{\xi}{Y})}{\eta},
+\end{align*}
+即有 {\bf Ricci 方程}:
+\begin{equation}\label{eq::Ricci-equation}
+	(\bRm(X, Y)\xi)^{\perp} = \tRm(X, Y)\xi + h(Y, \Shape{\xi}{X}) - h(X, \Shape{\xi}{Y}).
+\end{equation}
+
+Ricci 方程也有一种与法向量场 $\eta \in N(M)$ 内积的形式, 利用 $\Inner{h(X, Y)}{\xi} = \Inner{Y}{\Shape{\xi}X}$, 可知
+\[
+	\Inner{h(Y, \Shape{\xi}{X})}{\eta} = \Inner{\Shape{\eta}\Shape{\xi}{X}}{Y}
+\]
+与 
+\[
+	\Inner{h(X, \Shape{\xi}{Y})}{\eta} = \Inner{\Shape{\eta}{X}}{\Shape{\xi}Y} = \Inner{h(\Shape{\eta}X, Y)}{\xi} = \Inner{\Shape{\xi}\Shape{\eta}X}{Y},
+\]
+利用记号 $[\Shape{\eta}, \Shape{\xi}](X) = \Shape{\eta}\Shape{\xi}{X} - \Shape{\xi}\Shape{\eta}X$, Ricci 方程为:
+\[
+	\Inner{\bRm(X, Y)\xi}{\eta} = \Inner{\tRm(X, Y)\xi}{\eta} + \Inner{[\Shape{\eta}, \Shape{\xi}](X)}{Y}.
+\]
+
+\subsection{子流形基本方程·总结}
+\begin{align*}
+	\Inner{\bRm(X, Y)Z}{W} &= \Inner{\Rm(X, Y)Z}{W} + \Inner{h(W, Y)}{h(X, Z)} - \Inner{h(W, X)}{h(Y, Z)}. \tag{Gauss 方程} \\
+	(\bRm(X, Y)Z)^{\perp} &= \nabla h(Y, Z; X) - \nabla h(X, Z; Y). \tag{Codazzi 方程} \\
+	\Inner{\bRm(X, Y)\xi}{\eta} &= \Inner{\tRm(X, Y)\xi}{\eta} + \Inner{[\Shape{\eta}, \Shape{\xi}](X)}{Y}. \tag{Ricci 方程}
+\end{align*}

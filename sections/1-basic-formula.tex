@@ -1,0 +1,62 @@
+\subsection{等距浸入和嵌入}
+\begin{definition}[等距浸入]
+	若映射 $F\colon (M^n, g) \hookrightarrow (N^{n + p}, \bar{g})$ 是浸入, 且 $M$ 上的度量恰为由 $F$ 将 $N$ 上度量拉回得到的, 即 $g = F^{\ast}\bar{g}$, 则称 $F$ 是{\bf 等距浸入}.
+\end{definition}
+
+\begin{definition}[嵌入]
+	若映射 $F\colon (M^n, g) \hookrightarrow (N^{n + p}, \bar{g})$ 是浸入, 且还满足
+	\begin{enumerate}
+		\item $F$ 是单射;
+		\item $F\colon M \rightarrow F(M)$ 是同胚;
+	\end{enumerate}
+	则称 $F$ 是{\bf 嵌入}.
+\end{definition}
+
+若 $F \colon M \rightarrow N$ 同时是等距浸入和嵌入, 则称其是{\bf 等距嵌入}, 同时可将 $N$ 的子集 $F(M)$ 和 $M$ 等同, $F(M)$ 上的度量即为包含映射 $\iota \colon F(M) \rightarrow N$ 诱导的度量.
+
+以下除特殊声明外, $M^n$ 是 $N^{n + p}$ 的嵌入子流形.
+
+\subsection{法空间·法丛}
+\begin{definition}
+	设 $x \in M \subset N$, 则 $T_xM \subset T_xN$, 其正交补记作 $N_xM$. $NM = \cup_{x \in M}N_xM$ 为 $M$ 的{\bf 法丛}, $N_xM$ 为 $M$ 在 $x$ 点处的{\bf 法空间}. 由定义 $T_xN = T_x{M} \oplus N_xM$.
+\end{definition}
+
+\subsection{第二基本形式·平均曲率向量}
+设 $\bnabla$ 是 $N$ 上和 $\bar{g}$ 相容的黎曼联络, 取 $M$ 上向量场 $X, Y \in \VecFld(M)$. 可以将 $X, Y$ 延拓到 $N$ 上, 得到 $N$ 上的切向量场 $\bar{X}, \bar{Y}$. 则
+\begin{equation}\label{eq::restriction-of-bar-nabla}
+	\bnabla_{X}Y := \left.\bnabla_{\bar{X}}\bar{Y}\right|_{M},
+\end{equation}
+同时这个限制和 $X$ 以及 $Y$ 的延拓方式无关. $\bnabla_{X}Y$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
+\begin{equation}\label{eq::Gauss-formula}
+	\bnabla_{X}Y = \nabla_XY + h(X, Y),
+\end{equation}
+其中 $\nabla_XY \in T_xM$ 是切向部分, 且 $\nabla$ 是 $M$ 上和 $g$ 相容的黎曼联络. 而 $h \colon \VecFld(M) \times \VecFld(M) \rightarrow N(M)$ 是一个对称双线性张量场. 公式 \ref{eq::Gauss-formula} 称为{\bf Gauss 公式}. 对于 $h$ 有如下定义:
+
+\begin{definition}
+	$h$ 为子流形 $M$ 上的{\bf 第二基本形式}. 借助它可以定义法向量场
+	\begin{equation}\label{eq::mean-curvature-vector-def}
+		\overrightarrow{H} := \dfrac{1}{n}\mathrm{tr}_{g}h,
+	\end{equation}
+	即 $h$ 迹的平均, 为子流形 $M$ 的{\bf 平均曲率向量}.
+\end{definition}
+
+\subsection{Weingarten 公式·形状算子}
+假设如上, 但考虑光滑法向量场 $\xi \in N(M)$ 及其延拓 $\bar{\xi} \in \VecFld(N)$. 类似有:
+\begin{equation*}
+	\bDiv{X}{\xi} := \left.\bDiv{\bar{X}}{\xi}\right|_{M},
+\end{equation*}
+这个延拓也与 $X$ 以及 $\xi$ 的延拓方式无关. $\bDiv{X}{\xi}$ 是 $T_xN$ 中的向量, 对其按切向和法向分解:
+\begin{equation}\label{eq::Weingarten-formula}
+	\bDiv{X}{\xi} = -\Shape{\xi}X + \tDiv{X}{\xi},
+\end{equation}
+其中 $\Shape{\xi} \colon \VecFld(M) \rightarrow \VecFld(M)$ 是线性变换, 称为{\bf 形状算子}或 {\bf Weingarten 变换}. $\tnabla \colon \VecFld(M) \times N(M) \rightarrow N(M)$ 是{\bf 法丛的联络}.
+
+\subsection{第二基本形式和形状算子的关系}
+取切向量场 $X, Y \in \VecFld(M)$, 法向量场 $\xi \in N(M)$. 则可以得到如下等式:
+\begin{equation*}
+	0 = X\Inner{Y}{\xi} = \Inner{\bDiv{X}{Y}, \xi} + \Inner{Y}{\bDiv{X}{\xi}} = \Inner{h(X, Y)}{\xi} + \Inner{Y}{-\Shape{\xi}X}.
+\end{equation*}
+因此得到等式:
+\begin{equation}
+	\Inner{h(X, Y)}{\xi} = \Inner{Y}{\Shape{\xi}{X}}.
+\end{equation}

@@ -4,5 +4,5 @@ if "%1" == "" (
     xelatex %1
     xelatex %1
     xelatex %1
-    del *.aux *.log
+    del *.aux *.log *.out
 )
